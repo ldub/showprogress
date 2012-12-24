@@ -1,0 +1,8 @@
+﻿:Version 1.1 08/25/11
+ - Removed "Save" button.
+ - Fixed bugs
+   - Including, but not limited to, icon in pinned app, crashes.
+ - Now saves data in AppData Directory.
+
+:Version 1.0 08/24/11
+ - Initial Commit

@@ -1,0 +1,63 @@
+﻿<Window x:Class="ShowProgress.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sp="clr-namespace:ShowProgress"
+        x:Name="mainWindow"
+        Title="TV Show Progress" Height="380" Width="250"
+        Icon="CheckMark.ico"
+        Closing="mainWindow_Closing">
+    <Window.Resources>
+        <Style x:Key="MinimalButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFF5F5F5"/>
+            <Setter Property="BorderBrush" Value="#555555"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#FF666666"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8,7"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="{TemplateBinding Padding}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        CornerRadius="0" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#3C7FB1" />
+                                <Setter Property="Background" Value="#BEE6FD" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Name="gridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <!--<sp:UpDownButtonControl Height="30" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>-->
+        <StackPanel Name="splMain" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center">
+        </StackPanel>
+        <StackPanel Name="splNew" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Name="newShowTextBox" Height="30" MinWidth="45" MaxWidth="150" FontSize="16" HorizontalAlignment="Center" TextChanged="newShowTextBox_TextChanged" />
+            <Button Name="addShow" Style="{StaticResource MinimalButton}" Height="31" Margin="5,1,1,1" Click="addShow_Click" HorizontalAlignment="Center">Add Show</Button>
+        </StackPanel>
+    </Grid>
+</Window>

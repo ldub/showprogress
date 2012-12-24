@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="ShowProgress.Show"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:sp="clr-namespace:ShowProgress"
+             d:DesignHeight="30" d:DesignWidth="150">
+    <DockPanel>
+        <sp:UpDownButtonControl x:Name="upDownControl" DockPanel.Dock="Right" KeyboardNavigation.TabIndex="0"/>
+        <TextBox x:Name="showTextBox" MinWidth="{Binding ActualWidth, ElementName=theButton}" FontSize="16" Margin="0,0,2,0" KeyboardNavigation.TabIndex="1" TextChanged="showTextBox_TextChanged"/>
+    </DockPanel>
+</UserControl>
